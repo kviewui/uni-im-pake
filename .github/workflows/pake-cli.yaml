@@ -42,11 +42,6 @@ on:
         required: false
         type: boolean
         default: false
-      debug:
-        description: '[Debug, Optional]'
-        required: false
-        type: boolean
-        default: false
       targets:
         description: '[Targets, Optional, Linux only]'
         required: false
@@ -139,7 +134,6 @@ jobs:
           MULTI_ARCH: ${{ inputs.multi_arch }}
           TARGETS: ${{ inputs.targets }}
           SAFE_DOMAIN: ${{ inputs.safe_domain }}
-          DEBUG: ${{ inputs.debug }}
 
       - name: Upload archive
         uses: actions/upload-artifact@v3

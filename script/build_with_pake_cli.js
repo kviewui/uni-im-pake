@@ -21,7 +21,7 @@ console.log('safe-domain: ', process.env.SAFE_DOMAIN);
 console.log('===========================\n');
 
 cd('node_modules/pake-cli');
-let params = `node cli.js ${process.env.URL} --name ${process.env.NAME} --height ${process.env.HEIGHT} --width ${process.env.WIDTH} --inject ../../src-tauri/style/uni-im.css`;
+let params = `node cli.js ${process.env.URL} --name ${process.env.NAME} --height ${process.env.HEIGHT} --width ${process.env.WIDTH} --inject ../../src-tauri/style/uni-im.css --debug`;
 
 if (process.env.HIDE_TITLE_BAR === 'true') {
   params = `${params} --hide-title-bar`;
