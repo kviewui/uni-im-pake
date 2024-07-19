@@ -125,7 +125,7 @@ var packageJson = {
 
 var windows = [
 	{
-		url: "https://weread.qq.com",
+		url: "https://im.dcloud.net.cn",
 		url_type: "web",
 		hide_title_bar: true,
 		fullscreen: false,
@@ -148,6 +148,7 @@ var system_tray = {
 	windows: true
 };
 var inject = [
+	"./style/uni-im.css"
 ];
 var pakeConf = {
 	windows: windows,
@@ -166,6 +167,13 @@ var tauri$3 = {
 					"pake"
 				],
 				enableTauriAPI: true
+			},
+			{
+				domain: "im.dcloud.net.cn",
+				windows: [
+					"pake"
+				],
+				enableTauriAPI: true
 			}
 		]
 	},
@@ -173,8 +181,8 @@ var tauri$3 = {
 		active: false
 	},
 	systemTray: {
-		iconPath: "png/icon_512.png",
-		iconAsTemplate: false
+		iconPath: "png/uniim_32.ico",
+		iconAsTemplate: true
 	},
 	allowlist: {
 		all: true,
@@ -195,7 +203,7 @@ var build = {
 };
 var CommonConf = {
 	"package": {
-	productName: "WeRead",
+	productName: "uni-im",
 	version: "1.0.0"
 },
 	tauri: tauri$3,
@@ -837,14 +845,14 @@ const DEFAULT_PAKE_OPTIONS = {
     disabledWebShortcuts: false,
     activationShortcut: '',
     userAgent: '',
-    showSystemTray: false,
+    showSystemTray: true,
     multiArch: false,
     targets: 'deb',
     useLocalFile: false,
     systemTrayIcon: '',
     debug: false,
-    inject: [],
-    safeDomain: [],
+    inject: ["./src-tauri/style/uni-im.css"],
+    safeDomain: ["im.dcloud.net.cn"],
 };
 
 async function checkUpdateTips() {
