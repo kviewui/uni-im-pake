@@ -21,7 +21,7 @@ console.log('safe-domain: ', process.env.SAFE_DOMAIN);
 console.log('===========================\n');
 
 cd('node_modules/pake-cli');
-let params = `node cli.js ${process.env.URL} --name ${process.env.NAME} --height ${process.env.HEIGHT} --width ${process.env.WIDTH} --inject ../../src-tauri/style/uni-im.css --safe-domain im.dcloud.net.cn`;
+let params = `node cli.js ${process.env.URL} --name ${process.env.NAME} --height ${process.env.HEIGHT} --width ${process.env.WIDTH} --inject ../../src-tauri/style/uni-im.css`;
 
 if (process.env.HIDE_TITLE_BAR === 'true') {
   params = `${params} --hide-title-bar`;
@@ -40,12 +40,16 @@ if (process.env.TARGETS) {
   params = `${params} --targets ${process.env.TARGETS}`;
 }
 
-// if (process.env.SAFE_DOMAIN) {
-//   params = `${params} --safe-domain ${process.env.SAFE_DOMAIN}`;
-// }
+if (process.env.SAFE_DOMAIN) {
+  params = `${params} --safe-domain ${process.env.SAFE_DOMAIN}`;
+}
 
 if (process.platform === 'win32' || process.platform === 'linux' || process.platform === 'darwin') {
-  params = `${params} --show-system-tray`;
+  params = `${params} --show-system-tray --system-tray-icon ../../src-tauri/png/uniim_32.ico`;
+}
+
+if (process.env.DEBUG) {
+  params = `${params} --debug`;
 }
 
 const downloadIcon = async iconFile => {

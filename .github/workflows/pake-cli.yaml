@@ -30,7 +30,8 @@ on:
         default: '780'
       safe_domain:
         description: '[Safe Domain, Optional]'
-        required: false
+        required: false,
+        default: 'dcloud.net.cn'
       hide_title_bar:
         description: '[Hide TitleBar, Optional, MacOS only]'
         required: false
@@ -38,6 +39,11 @@ on:
         default: false
       multi_arch:
         description: '[MultiArch, Optional, MacOS only]'
+        required: false
+        type: boolean
+        default: false
+      debug:
+        description: '[Debug, Optional]'
         required: false
         type: boolean
         default: false
@@ -133,6 +139,7 @@ jobs:
           MULTI_ARCH: ${{ inputs.multi_arch }}
           TARGETS: ${{ inputs.targets }}
           SAFE_DOMAIN: ${{ inputs.safe_domain }}
+          DEBUG: ${{ inputs.debug }}
 
       - name: Upload archive
         uses: actions/upload-artifact@v3
