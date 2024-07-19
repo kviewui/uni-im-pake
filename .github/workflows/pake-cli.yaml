@@ -30,8 +30,7 @@ on:
         default: '780'
       safe_domain:
         description: '[Safe Domain, Optional]'
-        required: false,
-        default: 'dcloud.net.cn'
+        required: false
       hide_title_bar:
         description: '[Hide TitleBar, Optional, MacOS only]'
         required: false
