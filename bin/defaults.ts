@@ -11,21 +11,25 @@ export const DEFAULT_PAKE_OPTIONS: PakeCliOptions = {
   disabledWebShortcuts: false,
   activationShortcut: '',
   userAgent: '',
-  showSystemTray: false,
+  showSystemTray: true,
   multiArch: false,
   targets: 'deb',
   useLocalFile: false,
   systemTrayIcon: '',
   debug: false,
-  inject: [],
-  safeDomain: [],
+  inject: ["./src-tauri/style/uni-im.css"],
+  safeDomain: ["im.dcloud.net.cn"],
 };
 
 // Just for cli development
 export const DEFAULT_DEV_PAKE_OPTIONS: PakeCliOptions & { url: string } = {
   ...DEFAULT_PAKE_OPTIONS,
-  url: 'https://weread.qq.com',
-  name: 'WeRead',
-  safeDomain: ['weread.qq.com'],
+  url: 'https://im.dcloud.net.cn',
+  name: 'uniim',
+  safeDomain: ['im.dcloud.net.cn'],
   hideTitleBar: true,
+  showSystemTray: true,
+  inject: ["./src-tauri/style/uni-im.css"],
+  systemTrayIcon: './src-tauri/png/uniim_32.ico'
+  // systemTrayIcon: '../src-tauri/png/weread_32.ico'
 };

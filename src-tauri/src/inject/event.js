@@ -204,6 +204,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const detectAnchorElementClick = e => {
+    console.log('点击了')
     const anchorElement = e.target.closest('a');
     if (anchorElement && anchorElement.href) {
       anchorElement.target = '_self';
@@ -236,11 +237,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // Apple login and google login
     if (name === 'AppleAuthentication') {
       //do nothing
-    } else if (specs.includes('height=') || specs.includes('width=')) {
+    } else if (Array.isArray(specs) && (specs.includes('height=') || specs.includes('width='))) {
       location.href = url;
     } else {
       const baseUrl = window.location.origin + window.location.pathname;
       const hrefUrl = new URL(url, baseUrl);
+      console.log(hrefUrl)
       tauri.shell.open(hrefUrl.href);
     }
     // Call the original window.open function to maintain its normal functionality.

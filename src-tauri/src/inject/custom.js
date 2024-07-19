@@ -1,6 +1,5 @@
-/*
- * This file serves as a collection point for external JS and CSS dependencies.
- * It amalgamates these external resources for easier injection into the application.
- * Additionally, you can directly include any script files in this file
- * that you wish to attach to the application.
- */
+window.addEventListener('DOMContentLoaded', (_event) => { const css = `#tip-browser-compatibility {
+    display: none;
+    visibility: hidden;
+}
+`; const style = document.createElement('style'); style.innerHTML = css; document.head.appendChild(style); });

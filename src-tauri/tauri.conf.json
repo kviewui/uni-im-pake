@@ -1,6 +1,6 @@
 {
   "package": {
-    "productName": "WeRead",
+    "productName": "uni-im",
     "version": "1.0.0"
   },
   "tauri": {
@@ -11,6 +11,11 @@
           "domain": "weread.qq.com",
           "windows": ["pake"],
           "enableTauriAPI": true
+        },
+        {
+          "domain": "im.dcloud.net.cn",
+          "windows": ["pake"],
+          "enableTauriAPI": true
         }
       ]
     },
@@ -18,8 +23,8 @@
       "active": false
     },
     "systemTray": {
-      "iconPath": "png/icon_512.png",
-      "iconAsTemplate": false
+      "iconPath": "png/uniim_32.ico",
+      "iconAsTemplate": true
     },
     "allowlist": {
       "all": true,
